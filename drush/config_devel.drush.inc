@@ -14,14 +14,15 @@ function config_devel_drush_command() {
   $items = array();
 
   $description = '';
-  $description .= "Write back configuration to module's config/install directory." . "\n";
-  $description .= "List which configuration settings you want to export in the" . "\n";
-  $description .= "module's info file by listing them under 'config_devel', as shown below:"  . "\n";
+  $description .= "Write back configuration to module's config/install directory.\n";
+  $description .= "List which configuration settings you want to export in the\n";
+  $description .= "module's info file by listing them under 'config_devel', as shown below:\n";
   $description .= "\n";
-  $description .= "config_devel:"  . "\n";
-  $description .= "  - entity.view_display.node.article.default"  . "\n";
-  $description .= "  - entity.view_display.node.article.teaser"  . "\n";
-  $description .= "  - field.instance.node.article.body"  . "\n";
+  $description .= "config_devel:\n";
+  $description .= "  install:\n";
+  $description .= "    - entity.view_display.node.article.default\n";
+  $description .= "    - entity.view_display.node.article.teaser\n";
+  $description .= "    - field.instance.node.article.body\n";
 
   $items['config-devel-export'] = array(
     'description' => $description,
