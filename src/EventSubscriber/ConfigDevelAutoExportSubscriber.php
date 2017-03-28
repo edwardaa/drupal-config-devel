@@ -86,7 +86,7 @@ class ConfigDevelAutoExportSubscriber extends ConfigDevelSubscriberBase implemen
    */
   protected function autoExportConfig(Config $config) {
     $config_name = $config->getName();
-    $file_names = array_filter($this->getSettings()->get('auto_export'), function ($file_name) use ($config_name) {
+    $file_names = array_filter($this->getSettings()->get('auto_export') ?: [], function ($file_name) use ($config_name) {
       return basename($file_name, '.' . FileStorage::getFileExtension()) == $config_name;
     });
     $this->writeBackConfig($config, $file_names);
