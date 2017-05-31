@@ -88,7 +88,7 @@ function drush_config_devel_export($extension) {
 
     // If we have any optional configuration, process that as well.
     if (isset($config['optional'])) {
-      drush_config_devel_process_config($config['optional'], $type, $extension, InstallStorage::CONFIG_INSTALL_DIRECTORY);
+      drush_config_devel_process_config($config['optional'], $type, $extension, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
     }
   }
   else {
@@ -114,7 +114,7 @@ function drush_config_devel_import($extension) {
 
     // Import optional config
     if (isset($config['optional'])) {
-      drush_config_devel_import_config($config['optional'], $type, $extension, InstallStorage::CONFIG_INSTALL_DIRECTORY);
+      drush_config_devel_import_config($config['optional'], $type, $extension, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
     }
   }
   else {
