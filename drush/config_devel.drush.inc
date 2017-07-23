@@ -139,7 +139,7 @@ function drush_config_devel_import_one($path) {
     \Drupal::service('config_devel.auto_import_subscriber')->importOne($path, '', $contents);
   }
   else {
-    drush_log('file not found', 'error');
+    drush_log("file '$path' not found", 'error');
     exit;
   }
 }
