@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\config_devel\EventSubscriber\ConfigDevelAutoExportSubscriber.
- */
-
 namespace Drupal\config_devel\EventSubscriber;
 
 use Drupal\config_devel\Event\ConfigDevelEvents;

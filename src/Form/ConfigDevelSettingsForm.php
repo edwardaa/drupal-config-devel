@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\config_devel\Form\ConfigDevelSettingsForm.
- */
-
 namespace Drupal\config_devel\Form;
 
 use Drupal\Core\Config\FileStorage;
