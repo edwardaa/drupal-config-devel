@@ -202,8 +202,11 @@ function drush_config_devel_get_config($type, $extension) {
 
   $config = array();
   if (isset($info['config_devel'])) {
-    // Keep backwards compatibility for the old format.
-    if (!isset($info['config_devel']['install'])) {
+    // Keep backwards compatibility for the old format. This has config names
+    // listed directly beneath 'config_devel', rather than an intermediate level
+    // for 'install' and 'optional'.
+    // Detect the old format based on whether there's neither of these two keys.
+    if (!isset($info['config_devel']['install']) && !isset($info['config_devel']['optional'])) {
       $info['config_devel']['install'] = $info['config_devel'];
     }
 
