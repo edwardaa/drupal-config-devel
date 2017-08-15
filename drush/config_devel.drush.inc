@@ -14,7 +14,6 @@ function config_devel_drush_command() {
   $items = array();
 
   $description = '';
-  $description .= "Write back configuration to module's config/install directory.\n";
   $description .= "List which configuration settings you want to export in the\n";
   $description .= "module's info file by listing them under 'config_devel', as shown below:\n";
   $description .= "\n";
@@ -25,7 +24,7 @@ function config_devel_drush_command() {
   $description .= "    - field.instance.node.article.body\n";
 
   $items['config-devel-export'] = array(
-    'description' => $description,
+    'description' => "Write back configuration to module's config/install directory.\n" . $description,
     'arguments' => array(
       'module' => 'Module machine name.',
     ),
@@ -39,7 +38,7 @@ function config_devel_drush_command() {
   );
 
   $items['config-devel-import'] = array(
-    'description' => $description,
+    'description' => "Import configuration from module's config/install directory to active storage.\n" . $description,
     'arguments' => array(
       'module' => 'Module machine name.',
     ),
@@ -53,7 +52,7 @@ function config_devel_drush_command() {
   );
 
   $items['config-devel-import-one'] = array(
-    'description' => $description,
+    'description' => "Import a single configuration item from module's config/install directory to active storage.\n" . $description,
     'arguments' => array(
       'path' => 'Config file name.',
     ),
