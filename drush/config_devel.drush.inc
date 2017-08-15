@@ -22,9 +22,11 @@ function config_devel_drush_command() {
   $description .= "    - entity.view_display.node.article.default\n";
   $description .= "    - entity.view_display.node.article.teaser\n";
   $description .= "    - field.instance.node.article.body\n";
+  $description .= "  optional:\n";
+  $description .= "    - field.instance.node.article.tags\n";
 
   $items['config-devel-export'] = array(
-    'description' => "Write back configuration to module's config/install directory.\n" . $description,
+    'description' => "Write back configuration to module's config directory.\n" . $description,
     'arguments' => array(
       'module' => 'Module machine name.',
     ),
@@ -38,7 +40,7 @@ function config_devel_drush_command() {
   );
 
   $items['config-devel-import'] = array(
-    'description' => "Import configuration from module's config/install directory to active storage.\n" . $description,
+    'description' => "Import configuration from module's config directory to active storage.\n" . $description,
     'arguments' => array(
       'module' => 'Module machine name.',
     ),
@@ -52,7 +54,7 @@ function config_devel_drush_command() {
   );
 
   $items['config-devel-import-one'] = array(
-    'description' => "Import a single configuration item from module's config/install directory to active storage.\n" . $description,
+    'description' => "Import a single configuration item from module's config directory to active storage.\n" . $description,
     'arguments' => array(
       'path' => 'Config file name.',
     ),
