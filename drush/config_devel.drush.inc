@@ -91,6 +91,11 @@ function drush_config_devel_export($extension) {
     if (isset($config['optional'])) {
       drush_config_devel_process_config($config['optional'], $type, $extension, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
     }
+
+    // If we have any override configuration, process that as well.
+    if (isset($config['override'])) {
+      drush_config_devel_process_config($config['override'], $type, $extension, 'config/override');
+    }
   }
   else {
     drush_set_error("Couldn't export configuration. The '$extension' extension is not enabled.");
@@ -116,6 +121,11 @@ function drush_config_devel_import($extension) {
     // Import optional config
     if (isset($config['optional'])) {
       drush_config_devel_import_config($config['optional'], $type, $extension, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
+    }
+
+    // Import override config
+    if (isset($config['override'])) {
+      drush_config_devel_import_config($config['override'], $type, $extension, 'config/override');
     }
   }
   else {
@@ -216,6 +226,11 @@ function drush_config_devel_get_config($type, $extension) {
     // If we have any optional configuration, fetch that as well.
     if (isset($info['config_devel']['optional'])) {
       $config['optional'] = $info['config_devel']['optional'];
+    }
+
+    // If we have any override configuration, fetch that as well.
+    if (isset($info['config_devel']['override'])) {
+      $config['override'] = $info['config_devel']['override'];
     }
   }
 
