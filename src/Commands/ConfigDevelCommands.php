@@ -145,6 +145,11 @@ class ConfigDevelCommands extends DrushCommands {
     if (isset($config['optional'])) {
       $this->exportConfig($config['optional'], $type, $extension, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
     }
+
+    // If we have any override configuration, process that as well.
+    if (isset($config['override'])) {
+      $this->exportConfig($config['override'], $type, $extension, 'config/override');
+    }
   }
 
   /**
@@ -189,6 +194,11 @@ class ConfigDevelCommands extends DrushCommands {
     // Import optional config
     if (isset($config['optional'])) {
       $this->importConfig($config['optional'], $type, $extension, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
+    }
+
+    // Import override config
+    if (isset($config['override'])) {
+      $this->importConfig($config['override'], $type, $extension, 'config/override');
     }
   }
 
@@ -292,6 +302,11 @@ class ConfigDevelCommands extends DrushCommands {
       // If we have any optional configuration, fetch that as well.
       if (isset($info['config_devel']['optional'])) {
         $config['optional'] = $info['config_devel']['optional'];
+      }
+
+      // If we have any override configuration, fetch that as well.
+      if (isset($info['config_devel']['override'])) {
+        $config['override'] = $info['config_devel']['override'];
       }
     }
 
